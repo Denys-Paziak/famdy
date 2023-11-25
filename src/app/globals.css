@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,11 +18,131 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #222;
+  background: #fff;
 }
+
+
+nav a {
+  position: relative;
+}
+
+nav a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #222;
+  transition: 0.6s;
+}
+
+nav a:hover:before {
+  width: 100%;
+}
+
+.homeSlider {
+  height: 60vh;
+  background: #222;
+  color: #fff;
+}
+
+.homeSlider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+
+
+.homeSlider-item {
+  padding: 50px 0;
+}
+
+.homeSlider-item .button {
+  margin-top:20px;
+}
+
+.button {
+  padding: 5px 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  border-bottom: 2px solid #fff;
+  transition: 0.6s;
+}
+
+.button:hover {
+  padding: 5px 0px 2px 0px;
+  opacity: 0.5;
+}
+
+.title {
+  position: relative;
+}
+
+.title-bg {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+.category-item {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  transition: 0.6s;
+}
+
+.category-item img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  background: #222;
+  transition: 0.6s;
+  z-index: -1;
+}
+
+.category-item__hover-text {
+  position: absolute;
+  top: 150%;
+  left: 0%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.category-item:hover .category-item__hover-text{
+  top: 50%;
+  opacity: 0.2;
+}
+
+.category-item:hover img{
+  opacity: 0.2;
+}
+
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.category-grid-item1 { grid-area: 1 / 1 / 3 / 2; }
+.category-grid-item2 { grid-area: 1 / 2 / 2 / 3; }
+.category-grid-item3 { grid-area: 2 / 2 / 3 / 3; }
+.category-grid-item4 { grid-area: 1 / 3 / 3 / 4; }
