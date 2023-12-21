@@ -37,7 +37,7 @@ export const GoodsShelf = ({ limit, numCol, page, categoryFilter, data }: iProps
 
     return (
         <>
-            <div className={`shop-list grid gap-6 ${gridCol}`}>
+            <div className={`shop-list grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4`}>
                 {result.map(el => (
                     <ShopItem key={el.name + uuidv4()} el={el} />
                 ))}
