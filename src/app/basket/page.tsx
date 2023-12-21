@@ -93,7 +93,7 @@ const Basket = () => {
             <div className="container mx-auto flex flex-col gap-6 py-6">
                 {products.length === 0 ? (
                     <p>
-                        Товарів немає. <Link href="/shop/1">Перейти в магазин</Link>.
+                        Товарів немає. <Link href="/shop/all/1">Перейти в магазин</Link>.
                     </p>
                 ) : (
                     <>
