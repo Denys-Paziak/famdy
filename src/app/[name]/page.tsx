@@ -149,7 +149,7 @@ export default function Page({ params }: { params: { name: string } }) {
                 </div>
             </div>
             <h2 className="py-6 font-bold text-4xl">Характеристики</h2>
-            <ul className="grid grid-cols-4 gap-x-12 gap-y-4 py-6">
+            <ul className="grid grid-cols-1 lg:grid-cols-4 gap-x-12 gap-y-4 py-6">
                 {data?.description.map((el: any) => {
                     const elData = el.split(':');
                     return (
