@@ -21,8 +21,10 @@ const Basket = () => {
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
     useEffect(() => {
-        const storedProducts: Product[] = JSON.parse(localStorage.getItem('basket')) || [];
-        setProducts(storedProducts);
+        const storedProducts: Product[] | null = JSON.parse(localStorage.getItem('basket')!) || [];
+        if (storedProducts !== null) {
+            setProducts(storedProducts);
+        }
     }, []);
 
     useEffect(() => {
@@ -59,16 +61,19 @@ const Basket = () => {
         updateLocalStorage('basket', updatedProducts);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         try {
+
+            const formData: any = new FormData(e.target);
+
             const response = await fetch('http://2823362.ni514080.web.hosting-test.net/order.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams(new FormData(e.target)),
+                body: new URLSearchParams(formData) as URLSearchParams,
             });
 
             if (response.ok) {
