@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const Header = () => {
     return (
-        <header className={"container mx-auto grid grid-cols-3 items-center pt-5 pb-5"}>
+        <header className={"container mx-auto grid grid-cols-2 md:grid-cols-3 items-center pt-5 pb-5"}>
             <Nav />
 
             <Link href="/" className="logo text-3xl font-bold  mx-auto">FAMDY</Link>
