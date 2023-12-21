@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const EmailSection = () => {
     return (
-        <div className={"flex gap-10 container mx-auto pt-20"}>
+        <div className={"flex gap-10 container mx-auto pt-20 flex-col lg:flex-row"}>
             <div className={"bg-gray-300 h-1/2"}>
                 <Image className={"h-full"} src={"/img/email.jpg"} width={1000} height={1000} alt={"Image"} />
             </div>
