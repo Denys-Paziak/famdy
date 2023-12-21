@@ -1,3 +1,5 @@
+"use client"
+
 import data from "../product_data.json";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -10,38 +12,35 @@ interface Product {
 }
 
 const Likes = () => {
-    // Check if running on the client side
-    if (typeof window !== 'undefined') {
-        const storedProductsJSON = localStorage.getItem('products');
-        const storedProducts: number[] = storedProductsJSON ? JSON.parse(storedProductsJSON) : [];
+    // Parse localStorage and ensure it's not null
+    const storedProducts: number[] = JSON.parse(localStorage.getItem('products') || '[]');
 
-        const products: Product[] = [];
+    const products: Product[] = [];
 
-        data.forEach((el: Product) => {
-            if (storedProducts.includes(el.id)) {
-                products.push(el);
-            }
-        });
+    console.log(storedProducts);
+    console.log("s");
 
-        return (
-            <div className="min-h-[80vh]">
-                <div className='container mx-auto grid grid-cols-2 gap-6 py-6'>
-                    {products.map(el => (
-                        <a key={uuidv4()} href={`/${el.id}`} className="flex items-center gap-2">
-                            <img className="w-[50px] h-[50px] object-cover" src={el.images[0]} alt="" />
-                            <div>
-                                <p>{el.name}</p>
-                                <p className="font-bold">{el.price}</p>
-                            </div>
-                        </a>
-                    ))}
-                </div>
+    data.forEach((el: Product) => {
+        if (storedProducts.includes(el.id)) {
+            products.push(el);
+        }
+    });
+
+    return (
+        <div className="min-h-[80vh]">
+            <div className='container mx-auto grid grid-cols-2 gap-6 py-6'>
+                {products.map(el => (
+                    <a key={uuidv4()} href={`/${el.id}`} className="flex items-center gap-2">
+                        <img className="w-[50px] h-[50px] object-cover" src={el.images[0]} alt="" />
+                        <div>
+                            <p>{el.name}</p>
+                            <p className="font-bold">{el.price}</p>
+                        </div>
+                    </a>
+                ))}
             </div>
-        );
-    } else {
-        // Return something else or nothing if running on the server side
-        return null;
-    }
+        </div>
+    );
 }
 
 export default Likes;
