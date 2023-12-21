@@ -1,5 +1,4 @@
 "use client"
-
 import data from "../product_data.json";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,8 +11,13 @@ interface Product {
 }
 
 const Likes = () => {
-    // Parse localStorage and ensure it's not null
-    const storedProducts: number[] = JSON.parse(localStorage.getItem('products') || '[]');
+    // Check if running on the client side
+    if (typeof window === 'undefined') {
+        return <div>Loading...</div>; // Return some placeholder content during server-side rendering
+    }
+
+    const storedProductsJSON = localStorage.getItem('products');
+    const storedProducts: number[] = storedProductsJSON ? JSON.parse(storedProductsJSON) : [];
 
     const products: Product[] = [];
 
