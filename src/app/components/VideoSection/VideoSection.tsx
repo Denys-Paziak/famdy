@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const VideoSection = () => {
     return (
-        <div className={"videoSection container mx-auto flex items-center gap-10 pt-20"}>
+        <div className={"videoSection container mx-auto flex items-center gap-10 pt-20 flex-col lg:flex-row"}>
             <div className="videoSection__text">
                 <p className={"text-gray-400"}>Ефект, якщо у верхній частині не залежить</p>
                 <h2 className={"text-6xl font-bold my-4"}>Власний  стиль за порадами</h2>
