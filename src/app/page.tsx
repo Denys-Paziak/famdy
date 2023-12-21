@@ -22,7 +22,7 @@ export default function Home() {
 
 
 
-                <div className={`shop-list grid gap-6 grid-cols-4`}>
+                <div className={`shop-list grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4`}>
                     {data.slice(0, 8).map(el => (
                         <ShopItem key={el.name + uuidv4()} el={el} />
                     ))}
