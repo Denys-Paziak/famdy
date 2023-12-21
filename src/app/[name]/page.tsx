@@ -72,7 +72,7 @@ export default function Page({ params }: { params: { name: string } }) {
 
     return (
         <div className="container mx-auto py-10">
-            <div className="flex gap-10">
+            <div className="flex gap-10 flex-col lg:flex-row">
                 <Swiper
                     navigation={true}
                     modules={[Navigation]}
