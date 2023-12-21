@@ -1,5 +1,7 @@
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import Link from "next/link";
+
 interface iProps {
     numPage: number,
     activePage: number,
@@ -32,7 +34,7 @@ export const Pagination = ({ numPage, activePage, categoryFilter }: iProps) => {
         <nav className={"flex justify-center py-10"}>
             <ul className="flex items-center -space-x-px h-10 text-base">
                 <li>
-                    {activePage == 1 ? "" : <a href={category + "/" + (activePage - 1)}
+                    {activePage == 1 ? "" : <Link href={"/shop/" + category + "/" + (activePage - 1)}
                         className="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700  ">
                         <span className="sr-only">Previous</span>
                         <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true"
@@ -40,7 +42,7 @@ export const Pagination = ({ numPage, activePage, categoryFilter }: iProps) => {
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" d="M5 1 1 5l4 4" />
                         </svg>
-                    </a>}
+                    </Link>}
                 </li>
 
                 {
@@ -60,7 +62,7 @@ export const Pagination = ({ numPage, activePage, categoryFilter }: iProps) => {
                 }
 
                 <li>
-                    {activePage < numPage ? <a href={parseInt(activePage) + 1}
+                    {activePage < numPage ? <Link href={"/shop/" + category + "/" + (activePage + 1)}
                         className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700   ">
                         <span className="sr-only">Next</span>
                         <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true"
@@ -68,7 +70,7 @@ export const Pagination = ({ numPage, activePage, categoryFilter }: iProps) => {
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
                                 strokeWidth="2" d="m1 9 4-4-4-4" />
                         </svg>
-                    </a> : ""}
+                    </Link> : ""}
                 </li>
             </ul>
         </nav >
