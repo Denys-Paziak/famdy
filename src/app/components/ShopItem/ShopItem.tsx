@@ -7,16 +7,17 @@ import { SlBasket } from "react-icons/sl";
 import "./shopItem.css";
 
 interface Product {
-    id: number;
-    name: string;
-    images: string[];
-    price: string;
-    sale: string;
-    description: string;
+    id: any;
+    price: any;
+    image: any;
+    sale: any;
+    name: any;
+    size: any;
+    quantity: any;
 }
 
 interface Props {
-    el: Product;
+    el: any;
 }
 
 const ShopItem = ({ el }: Props) => {
@@ -24,8 +25,8 @@ const ShopItem = ({ el }: Props) => {
     const [basket, setBasket] = useState<string>("");
 
     useEffect(() => {
-        const storedProducts: number[] = JSON.parse(localStorage.getItem('products')) || [];
-        const basketProducts: Product[] = JSON.parse(localStorage.getItem('basket')) || [];
+        const storedProducts: number[] = JSON.parse(localStorage.getItem('products')!) || [];
+        const basketProducts: Product[] = JSON.parse(localStorage.getItem('basket')!) || [];
 
         setLikeBut(storedProducts.includes(el.id) ? "widget-active" : "");
 
@@ -39,7 +40,7 @@ const ShopItem = ({ el }: Props) => {
 
     const addToWishlist = (id: number) => {
         if (typeof Storage !== "undefined") {
-            let storedProducts: number[] = JSON.parse(localStorage.getItem('products')) || [];
+            let storedProducts: number[] = JSON.parse(localStorage.getItem('products')!) || [];
             const existingProductIndex = storedProducts.indexOf(id);
 
             if (existingProductIndex !== -1) {
@@ -58,7 +59,7 @@ const ShopItem = ({ el }: Props) => {
 
     const addToBasket = (id: number) => {
         if (typeof Storage !== "undefined") {
-            let basketProducts: Product[] = JSON.parse(localStorage.getItem('basket')) || [];
+            let basketProducts: Product[] = JSON.parse(localStorage.getItem('basket')!) || [];
             const existingProductIndex = basketProducts.findIndex((product: Product) => product.id === id);
 
             if (existingProductIndex !== -1) {

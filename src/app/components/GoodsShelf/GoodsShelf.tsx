@@ -9,10 +9,11 @@ interface iProps {
     numCol: number,
     page: number,
     categoryFilter: string,
+    data: any,
 }
 
 
-export const GoodsShelf = ({ limit, numCol, page, categoryFilter }: iProps) => {
+export const GoodsShelf = ({ limit, numCol, page, categoryFilter, data }: iProps) => {
 
 
     let result = [...data];
