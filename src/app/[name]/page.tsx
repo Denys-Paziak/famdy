@@ -78,7 +78,7 @@ export default function Page({ params }: { params: { name: string } }) {
                     modules={[Navigation]}
                     slidesPerView={2}
                     spaceBetween={10}
-                    className="mySwiper h-[100%] w-[50%]"
+                    className="mySwiper h-[100%] w-[100%] lg:w-[50%]"
                 >
                     {data?.images.map((el: string) => (
                         <SwiperSlide key={uuidv4()}>
@@ -86,7 +86,7 @@ export default function Page({ params }: { params: { name: string } }) {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className="text w-[50%]">
+                <div className="text w-[100%] lg:w-[50%]">
                     <div className="name">
                         <h2 className="text-4xl font-bold ">{data?.name}</h2>
                         <div className="flex gap-4 ">
