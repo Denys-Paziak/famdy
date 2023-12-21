@@ -31,7 +31,7 @@ export const Pagination = ({ numPage, activePage, categoryFilter }: iProps) => {
     }
 
     return (
-        <nav className={"flex justify-center py-10"}>
+        <nav className={"flex justify-center flex-wrap py-10"}>
             <ul className="flex items-center -space-x-px h-10 text-base flex-wrap ">
                 <li>
                     {activePage == 1 ? "" : <Link href={"/shop/" + category + "/" + (activePage - 1)}
