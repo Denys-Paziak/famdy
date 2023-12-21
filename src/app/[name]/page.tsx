@@ -25,7 +25,9 @@ export default function Page({ params }: { params: { name: string } }) {
         const id = data?.id;
 
         if (typeof Storage !== 'undefined' && id) {
-            let basketProducts: any[] = JSON.parse(localStorage.getItem('basket')) || [];
+            const storedBasket = localStorage.getItem('basket');
+            let basketProducts: any[] = storedBasket ? JSON.parse(storedBasket) : [];
+
             const existingProductIndex = basketProducts.findIndex((product) => product.id === id);
 
             if (existingProductIndex !== -1) {
@@ -66,6 +68,7 @@ export default function Page({ params }: { params: { name: string } }) {
             console.log("Sorry, your browser does not support localStorage.");
         }
     };
+
 
     return (
         <div className="container mx-auto py-10">
