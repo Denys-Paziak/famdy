@@ -32,7 +32,7 @@ export default function Page({ params }: { params: { category: string, page: num
         <div className='container mx-auto'>
             <Title>Магазин</Title>
             <div className='flex gap-6 py-6'>
-                <div className='flex gap-2'>
+                <div className='flex flex-wrap gap-2'>
                     <h2 className="font-bold">Категорія:</h2>
                     <div className="flex gap-2 ">
                         <Link href={"/shop/all/1"}>Все</Link>
