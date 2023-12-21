@@ -1,41 +1,47 @@
-"use client";
 import data from "../product_data.json";
 import { v4 as uuidv4 } from 'uuid';
 
 interface Product {
     id: number;
-    images: string[]; // or adjust according to your data structure
+    images: string[];
     name: string;
     price: string;
     // Add other properties of your 'el' object here
 }
 
 const Likes = () => {
-    const storedProductsJSON = localStorage.getItem('products');
-    const storedProducts: number[] = storedProductsJSON ? JSON.parse(storedProductsJSON) : [];
-    const products: Product[] = [];
+    // Check if running on the client side
+    if (typeof window !== 'undefined') {
+        const storedProductsJSON = localStorage.getItem('products');
+        const storedProducts: number[] = storedProductsJSON ? JSON.parse(storedProductsJSON) : [];
 
-    data.forEach((el: Product) => {
-        if (storedProducts.includes(el.id)) {
-            products.push(el);
-        }
-    });
+        const products: Product[] = [];
 
-    return (
-        <div className="min-h-[80vh]">
-            <div className='container mx-auto grid grid-cols-2 gap-6 py-6'>
-                {products.map(el => (
-                    <a key={uuidv4()} href={`/${el.id}`} className="flex items-center gap-2">
-                        <img className="w-[50px] h-[50px] object-cover" src={el.images[0]} alt="" />
-                        <div>
-                            <p>{el.name}</p>
-                            <p className="font-bold">{el.price}</p>
-                        </div>
-                    </a>
-                ))}
+        data.forEach((el: Product) => {
+            if (storedProducts.includes(el.id)) {
+                products.push(el);
+            }
+        });
+
+        return (
+            <div className="min-h-[80vh]">
+                <div className='container mx-auto grid grid-cols-2 gap-6 py-6'>
+                    {products.map(el => (
+                        <a key={uuidv4()} href={`/${el.id}`} className="flex items-center gap-2">
+                            <img className="w-[50px] h-[50px] object-cover" src={el.images[0]} alt="" />
+                            <div>
+                                <p>{el.name}</p>
+                                <p className="font-bold">{el.price}</p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        // Return something else or nothing if running on the server side
+        return null;
+    }
 }
 
 export default Likes;
