@@ -2,6 +2,6 @@
 
 module.exports = {
     images: {
-        domains: ['ager.ua'],
+        domains: ['ager.ua',"images.pexels.com"],
     },
 };
