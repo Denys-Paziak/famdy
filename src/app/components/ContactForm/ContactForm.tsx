@@ -18,32 +18,20 @@ const ContactForm = () => {
         message: '',
     });
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
         setValidationErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         // Валідація
         const errors = {};
-        if (!formData.name) {
-            errors.name = 'Ім\'я є обов\'язковим полем';
-        }
-        if (!formData.email) {
-            errors.email = 'Email є обов\'язковим полем';
-        }
-        if (!formData.phoneNumber) {
-            errors.phoneNumber = 'Номер телефону є обов\'язковим полем';
-        }
-        if (!formData.message) {
-            errors.message = 'Повідомлення є обов\'язковим полем';
-        }
+
 
         if (Object.keys(errors).length > 0) {
-            setValidationErrors(errors);
             setErrorMessage('Будь ласка, заповніть всі обов\'язкові поля.');
             setSuccessMessage('');
             return;
