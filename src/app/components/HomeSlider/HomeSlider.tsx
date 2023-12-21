@@ -35,7 +35,7 @@ const HomeSlider = () => {
                         />
 
                         <Image
-                            className={"absolute top-[10%] right-0 h-4/5 w-[30%] z-[-1] object-cover"}
+                            className={"absolute top-[10%] right-0 h-4/5 w-[30%] z-[-2] lg:z-[-1] object-cover"}
                             src="/img/homeSlider/2.jpg"
                             width={2000}
                             height={2000}
