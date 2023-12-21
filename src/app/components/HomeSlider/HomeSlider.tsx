@@ -21,7 +21,7 @@ const HomeSlider = () => {
             >
                 <SwiperSlide>
                     <div className="container mx-auto homeSlider-item ">
-                        <h1 className={"text-8xl uppercase font-300"}>Знижки на <br /> одяг</h1>
+                        <h1 className={"text-2xl lg:text-8xl uppercase font-300"}>Знижки на <br /> одяг</h1>
                         <Link href="/shop/all/1" >
                             <button className={"button"}>Магазин</button>
                         </Link>
